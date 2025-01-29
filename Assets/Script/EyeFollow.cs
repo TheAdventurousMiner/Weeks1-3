@@ -13,7 +13,9 @@ public class EyeFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Make object follow the direction of the mouse
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //set the z position to 0 since scene is 2D
         mouse.z = 0;
         Vector2 direction = mouse - transform.position;
 

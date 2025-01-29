@@ -13,7 +13,7 @@ public class SecondScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Make object follow mouse by using Input.mousePosition
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mousePos;
     }
