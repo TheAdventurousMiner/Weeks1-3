@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class AnimateTongue : MonoBehaviour
 {
+    //set variables for animation to public
+    //set public variable to control animation curve in the Unity
     public AnimationCurve curve;
+    //set public transform variables to move the tongue in specific locations
+    public Transform starting;
+    public Transform finish;
 
+    //set the range for the time and use t to represent time
     [Range(0, 2)]
-    public float t;
+    private float t;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +24,16 @@ public class AnimateTongue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //use Time.deltaTime to control the timing of the tongue movement
         t += Time.deltaTime;
 
-        if (t > 2)
+        //use if statement to reset the location so that the tongue moves in a loop
+       if (t > 2)
         {
             t = 0;
         }
 
-        transform.localScale = Vector2.one * curve.Evaluate(t);
+       //use Vector2.Lerp to animate the positions of the tongue
+        transform.position = Vector2.Lerp(starting.position, finish.position, curve.Evaluate(t));
     }
 }
