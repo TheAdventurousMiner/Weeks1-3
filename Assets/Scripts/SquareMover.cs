@@ -24,7 +24,9 @@ public class SquareMover : MonoBehaviour
 
         transform.position = newPos;
 
-        if(transform.position.x > xMax || transform.position.x < xMin)
+        bool isSquareXvalueExceeded = transform.position.x > xMax || transform.position.x < xMin;
+
+        if (isSquareXvalueExceeded)
         {
             speed = speed * -1;
         }
