@@ -14,7 +14,7 @@ public class Barrel : MonoBehaviour
     void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
+        mousePos.z = 0f;
         Vector3 direction = mousePos - transform.position;
         transform.up = direction;
     }
